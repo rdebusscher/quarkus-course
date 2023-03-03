@@ -1,0 +1,23 @@
+# Creating a new web application, by adding extensions later on
+
+quarkus create app com.foo:bar:1.0
+
+cd bar
+
+quarkus ext ls
+
+quarkus ext list -i -s rest 
+
+quarkus ext add quarkus-resteasy-reactive-jsonb 
+
+
+# Creating a new web applications with extensions
+
+quarkus create app com.foo:bar:1.0  -x quarkus-resteasy,quarkus-resteasy-jsonb  --no-wrapper
+
+
+# Start and test
+
+quarkus dev
+
+curl localhost:8080/hello

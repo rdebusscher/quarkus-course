@@ -29,3 +29,10 @@ For this fundamentals course, make sure you add the _"RESTEasy Classic"_ and _"R
 
 An example providing support for REST endpoints is shown within the demo application that can be found in the _rest_ directory. Also, have a look at the README file in that directory for more info.
 
+## CDI support
+
+Quarkus supports the main parts of the Jakarta CDI specification. The directory _rest-cdi_ directory contains an application that shows the basic functionality.  More information about the app can be found in the README file of that directory.
+
+## Configuration
+
+Application configuration is important and Quarkus support the MicroProfile Config API and some extensions for this purpose.  The directory _config_ has an application with some examples.

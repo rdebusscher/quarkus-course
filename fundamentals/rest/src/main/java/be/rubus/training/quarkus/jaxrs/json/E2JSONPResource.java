@@ -15,7 +15,7 @@ public class E2JSONPResource {
     public JsonObject getPerson() {
         return Json.createObjectBuilder()
                 .add("name", "Jane Doe")
-                .add("age",31)
+                .add("age", 31)
                 .build();
     }
 

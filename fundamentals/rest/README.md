@@ -35,7 +35,7 @@ See `E0HelloResource`.
 
 - The JSONB support (JSON Binding - automatic converting between Java and JSON) is provided through an extension.
 - Use appropriate Media Types
-- The JSONP support (JSON Processing - Programmatic reading and writing JSON) is integrated.  ??? TODO Test out if this is also for Jackson ????
+- The JSONP support (JSON Processing - Programmatic reading and writing JSON) is integrated. (Not with Jackson but it is when selecting JSONB)
 - POST type of endpoints.
 
 Testing
@@ -61,3 +61,13 @@ curl -v 'localhost:8080/rest/api/evenValue/5'
 ```
 
 See `E3ResponseResource`.
+
+## Generic Error handling
+
+You should have generic error handling in your application. Define an `ExceptionMapper` and return the required response (think about JSON and use code and message to be human and tool friendly).
+
+Exception within your application can than be RuntimeExceptions.
+
+```Shell
+curl 'localhost:8080/evenValue/4'
+```

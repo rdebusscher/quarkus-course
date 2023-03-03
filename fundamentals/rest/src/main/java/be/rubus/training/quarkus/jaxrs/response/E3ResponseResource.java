@@ -16,9 +16,11 @@ public class E3ResponseResource {
     @Path("/{intVal}")
     public Response testValue(@PathParam("intVal") Integer value) {
         if (value % 2 == 0) {
-           return Response.ok("Value is a correct even number") .build();
+            return Response.ok("Value is a correct even number")
+                    .build();
         } else {
-            return Response.notAcceptable(Collections.emptyList()).build();
+            return Response.notAcceptable(Collections.emptyList())
+                    .build();
         }
     }
 }

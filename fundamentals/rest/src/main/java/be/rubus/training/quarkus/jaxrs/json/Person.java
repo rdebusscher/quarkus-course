@@ -1,5 +1,8 @@
 package be.rubus.training.quarkus.jaxrs.json;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
+@RegisterForReflection  // Best practice and needed when native compilation is used and class is returned as entity
 public class Person {
     private String name;
     private int age;
