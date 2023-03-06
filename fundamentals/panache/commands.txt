@@ -1,0 +1,33 @@
+# Run MySQL database as a Docker container
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -e MYSQL_USER=rubus -e MYSQL_PASSWORD=rubus -e MYSQL_DATABASE=rubus -d -p 33060:33060 -p 3306:3306  mysql:5.7.33
+
+
+# Read with parameter
+curl localhost:8080/company/1
+
+# Master detail relation
+curl localhost:8080/employee
+
+# Insert record
+curl -X POST http://localhost:8080/company -H 'Content-Type: application/json' -d '{"name":"superCompany"}'
+
+# Check if record is added
+curl localhost:8080/company
+
+# Reading in combination with Master detail
+curl localhost:8080/employee/company/2
+
+# Read single employee (to check current values)
+curl localhost:8080/employee/100
+
+# Update employee. You see that company name is ignored
+curl -X POST localhost:8080/employee/100 -H 'Content-Type: application/json' -d '{"company":{"id":2,"name":"blablabla"},"firstName":"Leslie2","gender":"FEMALE","hireDate":"2018-08-31T22:00:00Z[UTC]","id":100,"lastName":"Andrews"}'
+
+# Update Employee, minimal (changed company Id
+curl -X POST localhost:8080/employee/100 -H 'Content-Type: application/json' -d '{"company":{"id":1},"firstName":"Leslie3","gender":"FEMALE","hireDate":"2018-08-31T22:00:00Z[UTC]","id":100,"lastName":"Andrews"}'
+
+# Update Employee, we need to retrieve current company first before it works, see EmployeeService#updateEmployee
+ curl -X POST localhost:8080/employee/100 -H 'Content-Type: application/json' -d '{"firstName":"Leslie4","gender":"FEMALE","hireDate":"2018-08-31T22:00:00Z[UTC]","id":100,"lastName":"Andrews"}'
+
+# Update Employee, making use of the Converters.
+curl -X POST localhost:8080/jpa/rest/employee/100 -H 'Content-Type: application/json' -d '{"company":{"id":2},"firstName":"Leslie3","gender":"FEMALE","hireDate":"2018-08-31T22:00:00Z[UTC]","id":100,"lastName":"Andrews", "favoriteColor": "200:50:50"}'

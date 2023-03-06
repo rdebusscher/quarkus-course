@@ -36,3 +36,12 @@ Quarkus supports the main parts of the Jakarta CDI specification. The directory 
 ## Configuration
 
 Application configuration is important and Quarkus support the MicroProfile Config API and some extensions for this purpose.  The directory _config_ has an application with some examples.
+
+## Database access
+
+An example and some important aspects in the setup can be found in the directory _panache_.
+
+## MicroStream intro
+
+An example of using MicroStream within Quarkus, without the need for any extension, is located in the GitHub repo https://github.com/rdebusscher/microstream-quarkus-patterns/tree/main/plain.
+
